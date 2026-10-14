@@ -86,13 +86,13 @@ milestone: MVP
 
 **Günün Okeyi** epic'inin **1. story'si** (epic #EPIC). Tema: Altyapı.
 
-**Öncelik:** P1 · **Efor:** M · **Milestone:** MVP · **Dokunduğu yer:** Unity projesi, `MustyCozyCore` UPM bağımlılığı, sahne düzeni, UGS kurulumu, Daily Drop'tan Core'a taşınan sınıflar
+**Öncelik:** P1 · **Efor:** M · **Milestone:** MVP · **Dokunduğu yer:** Unity projesi, `MustyCozyCore` (`com.mtafasahin.cozycore`, monorepo `mtafasahin-unity-packages`) UPM bağımlılığı, sahne düzeni, UGS kurulumu, Daily Drop'tan Core'a taşınan sınıflar
 
 ### Kullanıcı hikâyesi
 Bir geliştirici olarak Günün Okeyi'nin ortak paketi (reklam, IAP, UGS, yerelleştirme, ayarlar, günlük ritüel sınıfları) ilk günden kullanmasını isterim, böylece Daily Drop'ta yazdığım hiçbir altyapıyı ikinci kez yazmam.
 
 ### Kabul kriterleri
-- [ ] **Senaryo: Temiz kurulum** · Verilen boş bir Unity 2022 LTS projesi · Eğer `MustyCozyCore` paketi git URL ile eklenirse · O zaman proje derlenir ve `Bootstrap` sahnesi açılınca UGS oturumu (anonim Player Accounts) kurulur.
+- [ ] **Senaryo: Temiz kurulum** · Verilen boş bir Unity 6000.6 projesi · Eğer `MustyCozyCore` paketi git URL ile eklenirse · O zaman proje derlenir ve `Bootstrap` sahnesi açılınca UGS oturumu (anonim Player Accounts) kurulur.
 - [ ] **Senaryo: Sahne akışı** · Verilen `Bootstrap → Home → Play → Result` sahneleri · Eğer uygulama açılırsa · O zaman 2 sn içinde Home görünür; geri tuşu Home'da uygulamadan çıkar, diğer sahnelerde bir geri gider; Play'de geri tuşu eli bozmaz (Home'a döner, diziliş korunur).
 - [ ] **Senaryo: Yerelleştirme** · Verilen TR, EN ve DE tabloları · Eğer cihaz dili TR, EN veya DE ise · O zaman tüm metinler o dilde, aksi halde EN; dil Ayarlar'dan değiştirilebilir.
 - [ ] **Senaryo: Core'a taşınan sınıflar** · Verilen Daily Drop'taki `DailySeed`, `DailyState`, `MidnightWatcher`, `StreakService`, `ShareCardRenderer`, `ServerClock` · Eğer Core'a taşınıp oyun adıyla parametrelenirse · O zaman iki oyun da aynı sürümü derler ve Daily Drop'un Edit Mode testleri geçer.
@@ -485,7 +485,7 @@ Bir oyuncu olarak takıldığımda bir reklam izleyip çözücüden tek bir dizi
 
 ### Teknik görevler (Unity/C#)
 - [ ] `HintFlow` ve `SecondSubmitFlow`: durum {Offered, Loading, Showing, Rewarded, Failed}; `AdsService.ShowRewarded(placement: "hint")` ve `"second_submit"`.
-- [ ] Core `AdsService`: AppLovin MAX ödüllü yerleşim, yükleme/yeniden deneme, `OnRewarded` güvenilirlik (ödül yalnızca SDK callback'inde); iki yerleşim kimliği.
+- [ ] Core `AdsService`: AdMob ödüllü yerleşim, yükleme/yeniden deneme, `OnRewarded` güvenilirlik (ödül yalnızca SDK callback'inde); iki yerleşim kimliği.
 - [ ] `DailyState.hintUsed`, `secondSubmitUsed`, `hintMeld` (çip için) kalıcı + Cloud Save.
 - [ ] HUD "İpucu" düğmesi durumları (aktif, yükleniyor, kullanıldı); öneri vurgusu `TileView.Blink`; "Öneri" çipi `MeldChips` içinde.
 - [ ] Result ikincil düğme; `SubmitPolicy` ile `MaxSubmits` güncellemesi (8. story).
@@ -630,7 +630,7 @@ Bir geliştirici olarak oyunu Türkiye, Almanya ve Hollanda'da kapalı test ve a
 ### Teknik görevler (Unity/C#)
 - [ ] Mağaza metinleri `docs/store/{tr,en,de}.md`; ASO anahtar kelime listesi; rakip başlık ve ikon taraması (TR okey uygulamaları, Rummikub, EN "rummy puzzle").
 - [ ] Ekran görüntüsü şablonu (Figma/Design kanvası), 1080×1920, 3 dil; büyük yazı (45+ okunabilirlik: başlıklar ≥ 64 px).
-- [ ] Veri güvenliği formu; `docs/privacy.md`; AppLovin MAX ve UGS veri beyanları.
+- [ ] Veri güvenliği formu; `docs/privacy.md`; AdMob ve UGS veri beyanları.
 - [ ] Play Console kurulumu: iç test → kapalı test → üretim (3 ülke); fiyat kademeleri.
 - [ ] Sürümleme: `CHANGELOG.md`, `versionCode` CI'da otomatik.
 - [ ] UTM'li paylaşım linki takibi (Play Console "Acquisition" ile eşleme).

@@ -9,4 +9,4 @@ Günün Okeyi: tek kişilik okey bulmacası: herkese aynı 14 taş, en yüksek p
 - Araştırma: `docs/arastirma-raporu.md` (canlı doküman: https://claude.ai/code/artifact/8ab0af47-8a63-4fac-8fd7-aad383f2fe81)
 - Ajanlar için brief: `CLAUDE.md`
 
-Teknoloji: Unity 2022 LTS+ / C#, URP 2D, UGS, AppLovin MAX, Unity IAP; ortak paket `MustyCozyCore`.
+Teknoloji: Unity 6 (6000.6.x) / C#, URP 2D, VContainer + MessagePipe + UniTask, UGS, AdMob, Unity IAP; ortak paketler `com.mtafasahin.cozycore` ve `com.mtafasahin.mergephysics` (monorepo `mtafasahin-unity-packages`).
